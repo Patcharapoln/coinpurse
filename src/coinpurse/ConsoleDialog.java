@@ -8,12 +8,8 @@ import java.util.Scanner;
  * balance.
  */
 public class ConsoleDialog {
-	// default currency for this dialog
 	public static final String CURRENCY = "Baht";
-	// use a single java.util.Scanner object for reading all input
 	private static Scanner console = new Scanner(System.in);
-
-	// TODO How does this object get a Purse? DO NOT WRITE "new Purse(xx)".
 	private Purse purse;
 
 	/**

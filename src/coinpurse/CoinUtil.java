@@ -7,6 +7,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Some Coin utility methods for practice using Lists and Comparator.
+ * 
+ * @author Patcharapol Nirunpornputta
+ */
 public class CoinUtil {
 
 	/**
