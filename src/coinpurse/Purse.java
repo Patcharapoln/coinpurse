@@ -19,8 +19,6 @@ public class Purse {
 	 * when the purse is created and cannot be changed.
 	 */
 	private final int capacity;
-	/** balance of purse */
-	private double balance;
 	/** List of coin in purse */
 	private List<Coin> money = new ArrayList<Coin>();
 
@@ -50,10 +48,11 @@ public class Purse {
 	 * @return the total value of items in the purse.
 	 */
 	public double getBalance() {
+		double balance=0;
 		for (int i = 0; i < money.size(); i++) {
-			this.balance += money.get(i).getValue();
+			balance += money.get(i).getValue();
 		}
-		return this.balance;
+		return balance;
 	}
 
 	/**
@@ -132,7 +131,7 @@ public class Purse {
 	 * return whatever is a useful description.
 	 */
 	public String toString() {
-		return this.capacity + " coin with value " + this.balance;
+		return this.capacity + " coin with value " + getBalance();
 	}
 
 	public static void main(String[] arg) {
