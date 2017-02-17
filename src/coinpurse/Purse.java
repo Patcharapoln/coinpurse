@@ -2,6 +2,7 @@ package coinpurse;
 
 import java.util.List;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,7 +21,7 @@ public class Purse {
 	 */
 	private final int capacity;
 	/** List of coin in purse */
-	private List<Coin> money = new ArrayList<Coin>();
+	private List<Valuable> money = new ArrayList<Valuable>();
 
 	/**
 	 * Create a purse with a specified capacity.
@@ -48,7 +49,7 @@ public class Purse {
 	 * @return the total value of items in the purse.
 	 */
 	public double getBalance() {
-		double balance=0;
+		double balance = 0;
 		for (int i = 0; i < money.size(); i++) {
 			balance += money.get(i).getValue();
 		}
@@ -85,10 +86,16 @@ public class Purse {
 	 *            is a Coin object to insert into purse
 	 * @return true if coin inserted, false if can't insert
 	 */
-	public boolean insert(Coin coin) {
-		if (this.money.size() < capacity && coin.getValue() != 0) {
-			money.add(coin);
-			Collections.sort(this.money);
+	public boolean insert(Valuable value) {
+		if (this.money.size() < capacity && value.getValue() != 0) {
+			money.add(value);
+			Collections.sort(this.money, new Comparator<Valuable>() {
+				@Override
+				public int compare(Valuable o1, Valuable o2) {
+					return Double.compare(o1.getValue(),o2.getValue());
+					}
+
+			});
 			return true;
 		}
 		return false;
@@ -104,21 +111,21 @@ public class Purse {
 	 * @return array of Coin objects for money withdrawn, or null if cannot
 	 *         withdraw requested amount.
 	 */
-	public Coin[] withdraw(double amount) {
-		List<Coin> templist = new ArrayList<>();
+	public Valuable[] withdraw(double amount) {
+		List<Valuable> templist = new ArrayList<>();
 
 		for (int i = money.size() - 1; i >= 0; i--) {
-			Coin coin = money.get(i);
+			Valuable coin = money.get(i);
 			if (coin.getValue() <= amount) {
 				templist.add(coin);
 				amount -= coin.getValue();
 			}
 		}
 		if (amount == 0) {
-			for (Coin remove : templist) {
+			for (Valuable remove : templist) {
 				this.money.remove(remove);
 			}
-			Coin[] remove = new Coin[templist.size()];
+			Valuable[] remove = new Valuable[templist.size()];
 			templist.toArray(remove);
 			return remove;
 		}

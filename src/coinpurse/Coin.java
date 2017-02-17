@@ -7,7 +7,7 @@ package coinpurse;
  * @author Patcharapol Nirunpornputta
  */
 
-public class Coin implements Comparable<Coin> {
+public class Coin implements Comparable<Coin> , Valuable{
 	/** Value of the coin. */
 	private final double value;
 	private static final String DEFAULT_CURRENCY = "Baht";
@@ -42,6 +42,7 @@ public class Coin implements Comparable<Coin> {
 	 * 
 	 * @return value of coin
 	 */
+	@Override
 	public double getValue() {
 		return value;
 	}
@@ -51,6 +52,7 @@ public class Coin implements Comparable<Coin> {
 	 * 
 	 * @return currency of coin
 	 */
+	@Override
 	public String getCurrency() {
 		return currency;
 	}
@@ -99,7 +101,10 @@ public class Coin implements Comparable<Coin> {
 	/**
 	 * @return value and currency of coins
 	 */
+	@Override
 	public String toString() {
 		return this.value + "-" + this.currency;
 	}
+
+	
 }
