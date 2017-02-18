@@ -47,16 +47,16 @@ public class CoinUtil {
 	 *            order coins by currency. 2. Create a comparator instance and
 	 *            use it to sort the coins.
 	 */
-	public static void sortByCurrency(List<Valuable> value){
-		Collections.sort(value, new Comparator<Valuable>(){
-		
-		@Override
-		public int compare(Valuable o1, Valuable o2) {
-			return o1.getCurrency().compareTo(o2.getCurrency());
+	public static void sortByCurrency(List<Valuable> value) {
+		Collections.sort(value, new Comparator<Valuable>() {
+
+			@Override
+			public int compare(Valuable o1, Valuable o2) {
+				return o1.getCurrency().compareTo(o2.getCurrency());
 			}
 
-	});
-		
+		});
+
 	}
 
 	/**
@@ -70,35 +70,18 @@ public class CoinUtil {
 	 * Hint: this is easy if you sort the coins by currency first. :-)
 	 */
 	public static void sumByCurrency(List<Valuable> coins) {
-		Map<String,Double> sum = new HashMap<String ,Double>();
-		for(Valuable money: coins){
-			if(!sum.containsKey(money.getCurrency())){
+		Map<String, Double> sum = new HashMap<String, Double>();
+		for (Valuable money : coins) {
+			if (!sum.containsKey(money.getCurrency())) {
 				sum.put(money.getCurrency(), money.getValue());
-			}else{
-				sum.put(money.getCurrency(),sum.get(money.getCurrency())+money.getValue());
+			} else {
+				sum.put(money.getCurrency(), sum.get(money.getCurrency()) + money.getValue());
 			}
-			
-			}for (String key : sum.keySet()) {
-				System.out.print(sum.get(key)+"-"+key+" ");
-		}	
-			
-			
 		}
-//		sortByCurrency(coins);
-//		String currency = coins.get(0).getCurrency();
-//		double sum = 0;
-//		for (Coin cash : coins) {
-//			if (cash.getCurrency().equals(currency)) {
-//				sum += cash.getValue();
-//			} else {
-//				System.out.printf("%.2f %s\n", sum, currency);
-//				currency = cash.getCurrency();
-//				sum = 0;
-//				sum += cash.getValue();
-//			}
-//		}
-//		System.out.printf("%.2f %s\n", sum, currency);
-	
+		for (String key : sum.keySet()) {
+			System.out.print(sum.get(key) + "-" + key + " ");
+		}
+	}
 
 	/**
 	 * This method contains some code to test the above methods.
