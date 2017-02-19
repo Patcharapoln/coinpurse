@@ -1,5 +1,10 @@
 package coinpurse;
 
+/**
+ * Banknote represents coinage (money) with a fixed value and currency.
+ * 
+ * @author Patcharapol Nirunpornputta
+ */
 public class BankNote implements Valuable {
 	/** Value of banknote*/
 	private double value;
@@ -94,6 +99,6 @@ public class BankNote implements Valuable {
 	 * @return value , currency and serialnumber of banknote
 	 */
 	public String toString() {
-		return this.value + "-" + this.currency+ " ["+ this.serialNumber+"]";
+		return this.value + "-" + this.currency+" note"+ " ["+ this.serialNumber+"]";
 	}
 }
