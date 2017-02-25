@@ -87,13 +87,13 @@ public class Purse {
 	 * @return true if coin inserted, false if can't insert
 	 */
 	public boolean insert(Valuable value) {
-		if (this.money.size() < capacity && value.getValue() != 0) {
+		if (isFull() == false && value.getValue() != 0) {
 			money.add(value);
 			Collections.sort(this.money, new Comparator<Valuable>() {
 				@Override
 				public int compare(Valuable o1, Valuable o2) {
-					return Double.compare(o1.getValue(),o2.getValue());
-					}
+					return Double.compare(o1.getValue(), o2.getValue());
+				}
 
 			});
 			return true;

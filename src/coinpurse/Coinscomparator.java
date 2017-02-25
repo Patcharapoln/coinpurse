@@ -7,7 +7,7 @@ import java.util.Comparator;
  * 
  * @author Patcharapol Nirunpornputta
  */
-public class Coinscomparator implements Comparator<Coin> {
+public class CoinsComparator implements Comparator<Coin> {
 
 	/**
 	 * Uses to sort currency of coin
