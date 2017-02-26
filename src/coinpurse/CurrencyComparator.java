@@ -7,7 +7,7 @@ import java.util.Comparator;
  * 
  * @author Patcharapol Nirunpornputta
  */
-public class CoinsComparator implements Comparator<Coin> {
+public class CurrencyComparator implements Comparator<Valuable> {
 
 	/**
 	 * Uses to sort currency of coin
@@ -17,8 +17,8 @@ public class CoinsComparator implements Comparator<Coin> {
 	 * @return alphabetize currency
 	 */
 	@Override
-	public int compare(Coin first, Coin second) {
-		return first.getCurrency().compareTo(second.getCurrency());
+	public int compare(Valuable first, Valuable second) {
+		return first.getCurrency().compareToIgnoreCase(second.getCurrency());
 		
 	}
 

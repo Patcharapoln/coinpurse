@@ -58,12 +58,12 @@ public class ConsoleDialog {
 		String inline = console.nextLine();
 		// parse input line into numbers
 		Scanner scanline = new Scanner(inline);
-		Valuable money;
 		while (scanline.hasNextDouble()) {
-			double value = scanline.nextDouble();
+			String value = scanline.next();
+			Valuable money = null;
 			try {
 				money = MoneyFactory.getInstance().createMoney(value);
-			} catch (IllegalArgumentException ex) {
+			} catch (Exception ex) {
 				System.out.println("Sorry, " + inline + " is not a valid amount.");
 				continue;
 			}
@@ -73,7 +73,7 @@ public class ConsoleDialog {
 		}
 		if (scanline.hasNext())
 			System.out.println("Invalid input: " + scanline.next());
-	}
+		}
 
 	/**
 	 * Ask how much money (Baht) to withdraw and then do it. After withdraw,

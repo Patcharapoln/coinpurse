@@ -9,14 +9,14 @@ package coinpurse;
 
 public class Coin extends AbstractValuable{
 	
-		
+	
 	/**
 	 * A coin with given value using the default currency.
 	 * 
 	 * @param value
 	 */
 	public Coin(double value) {
-		super(value);
+		super(value,DEFAULT_CURRENCY);
 	}
 
 	/**

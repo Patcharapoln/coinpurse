@@ -28,9 +28,8 @@ public class CoinUtil {
 			if (coin.getCurrency().equals(currency)) {
 				money.add(coin);
 			}
-			return money;
 		}
-		return null; // return a list of coin references copied from coinlist
+		return money; // return a list of coin references copied from coinlist
 	}
 
 	/**
@@ -52,7 +51,7 @@ public class CoinUtil {
 
 			@Override
 			public int compare(Valuable o1, Valuable o2) {
-				return o1.getCurrency().compareTo(o2.getCurrency());
+				return o1.getCurrency().compareToIgnoreCase(o2.getCurrency());
 			}
 
 		});

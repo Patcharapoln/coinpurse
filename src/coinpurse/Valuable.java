@@ -21,20 +21,9 @@ public interface Valuable extends Comparable<Valuable>{
 	 */
 	public String getCurrency();
 
-	/**
-	 * return value and currency of this object
-	 * 
-	 * @return value and currency of this object
-	 */
-	public String toString();
+	
+	
 
-	/**
-	 * Check a value and currency of two coins or banknotes. They are equal when
-	 * have same value and currency
-	 * 
-	 * @return true when two coins or banknotes are equal , else return false
-	 */
-	public boolean equals(Object other);
+	
 
-	public int compareTo(Valuable other);
 }

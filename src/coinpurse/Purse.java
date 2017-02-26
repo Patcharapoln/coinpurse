@@ -21,7 +21,7 @@ public class Purse {
 	 */
 	private final int capacity;
 	/** List of coin in purse */
-	private List<Valuable> money = new ArrayList<Valuable>();
+	private List<Valuable> money ;
 
 	/**
 	 * Create a purse with a specified capacity.
@@ -31,6 +31,7 @@ public class Purse {
 	 */
 	public Purse(int capacity) {
 		this.capacity = capacity;
+		this.money = new ArrayList<>();
 	}
 
 	/**
@@ -50,8 +51,8 @@ public class Purse {
 	 */
 	public double getBalance() {
 		double balance = 0;
-		for (int i = 0; i < money.size(); i++) {
-			balance += money.get(i).getValue();
+		for (Valuable m : this.money) {
+			balance += m.getValue();
 		}
 		return balance;
 	}
@@ -112,13 +113,13 @@ public class Purse {
 	 *         withdraw requested amount.
 	 */
 	public Valuable[] withdraw(double amount) {
-		List<Valuable> templist = new ArrayList<>();
+		List<Valuable> templist = new ArrayList<Valuable>();
 
 		for (int i = money.size() - 1; i >= 0; i--) {
-			Valuable coin = money.get(i);
-			if (coin.getValue() <= amount) {
-				templist.add(coin);
-				amount -= coin.getValue();
+			Valuable m = money.get(i);
+			if (m.getValue() <= amount) {
+				amount = amount - m.getValue();
+				templist.add(m);
 			}
 		}
 		if (amount == 0) {
@@ -138,7 +139,7 @@ public class Purse {
 	 * return whatever is a useful description.
 	 */
 	public String toString() {
-		return this.capacity + " coin with value " + getBalance();
+		return this.money.size() + " items with value " + this.getBalance();
 	}
 
 	public static void main(String[] arg) {
@@ -157,5 +158,6 @@ public class Purse {
 		System.out.println(purse.toString());
 		System.out.println(purse.withdraw(12));
 		System.out.println(Arrays.toString(purse.withdraw(11)));
+		System.out.println(purse.getBalance());
 	}
 }
