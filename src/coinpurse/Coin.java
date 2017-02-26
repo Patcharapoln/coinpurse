@@ -7,16 +7,15 @@ package coinpurse;
  * @author Patcharapol Nirunpornputta
  */
 
-public class Coin extends AbstractValuable{
-	
-	
+public class Coin extends AbstractValuable {
+
 	/**
 	 * A coin with given value using the default currency.
 	 * 
 	 * @param value
 	 */
 	public Coin(double value) {
-		super(value,DEFAULT_CURRENCY);
+		super(value, DEFAULT_CURRENCY);
 	}
 
 	/**
@@ -26,7 +25,7 @@ public class Coin extends AbstractValuable{
 	 * @param currency
 	 */
 	public Coin(double value, String currency) {
-		super(value,currency);
+		super(value, currency);
 
 	}
 
@@ -35,12 +34,9 @@ public class Coin extends AbstractValuable{
 	 */
 	@Override
 	public String toString() {
-		if(super.getCurrency().equals("Ringgit")){
+		if (super.getCurrency().equals("Ringgit")) {
 			return getValue() + "-" + "Sen coin";
 		}
 		return getValue() + "-" + getCurrency();
 	}
-	
-	
-
 }

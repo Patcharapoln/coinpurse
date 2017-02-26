@@ -30,8 +30,6 @@ public class BankNote extends AbstractValuable {
 		super(value, currency);
 	}
 
-
-
 	/**
 	 * Get serialnumber of banknote
 	 * @return a serialnumber of banknote
@@ -48,7 +46,6 @@ public class BankNote extends AbstractValuable {
 		this.serialNumber = serialNumber;
 	}
 	
-
 	/**
 	 * @return value , currency and serialnumber of banknote
 	 */

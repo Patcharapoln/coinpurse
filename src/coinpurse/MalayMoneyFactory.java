@@ -1,5 +1,10 @@
 package coinpurse;
 
+/**
+ * A class for create Malay money
+ * @author Patcharapol Nirunpornputta
+ *
+ */
 public class MalayMoneyFactory extends MoneyFactory {
 	/** Malaysia money currency */
 	private String currency = "Ringgit";

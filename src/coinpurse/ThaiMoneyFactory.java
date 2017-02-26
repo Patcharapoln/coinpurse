@@ -1,5 +1,10 @@
 package coinpurse;
 
+/**
+ * A class for create Thai money
+ * @author Patcharapol Nirunpornputta
+ *
+ */
 public class ThaiMoneyFactory extends MoneyFactory {
 	/**Currency of Thai money*/
 	private String currency = "Baht";

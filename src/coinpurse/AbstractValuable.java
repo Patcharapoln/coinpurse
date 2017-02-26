@@ -1,5 +1,11 @@
 package coinpurse;
 
+/**
+ * An abstract class for project to avoid duplicate code with valuable interface
+ * 
+ * @author Patcharapol Nirunpornputta
+ *
+ */
 public abstract class AbstractValuable implements Valuable {
 	/** value of money */
 	private double value;
@@ -11,10 +17,8 @@ public abstract class AbstractValuable implements Valuable {
 	/**
 	 * Initialize a AbstractValuable with given value and currency.
 	 * 
-	 * @param value
-	 *            of money
-	 * @param currency
-	 *            of money
+	 * @param value of money
+	 * @param currency of money
 	 */
 	public AbstractValuable(double value, String currency) {
 		this.value = value;
@@ -59,9 +63,10 @@ public abstract class AbstractValuable implements Valuable {
 
 	/**
 	 * Compare this item to other
-	 * @return < 0 if this value is less than other value
-	 *         = 0 if this value equals other value
-	 *         > 0 if this value is more than other value
+	 * 
+	 * @return < 0 if this value is less than other value 
+	 * 		   = 0 if this value equals other value 
+	 * 		   > 0 if this value is more than other value
 	 */
 	@Override
 	public int compareTo(Valuable other) {
